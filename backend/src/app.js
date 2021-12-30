@@ -13,7 +13,9 @@ const { query } = require("./utils/db.js")
 const { YyResponse } = require("./utils/response.js")
 const { fileSave, fileSqlTypeGet } = require("./utils/uploadFile.js")
 const { socketInit, socketEmit } = require("./utils/socket.js")
+const { myLogger, requestTime, responseTime } = require("./utils/middleware.js")
 
+app.use(requestTime)
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -121,6 +123,8 @@ app.post('/chat_file_upload', async (req, res) =>  {
     }
 
 })
+
+
 
 socketInit(server)
 

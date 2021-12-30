@@ -4,3 +4,4 @@ dist
 dist-ssr
 *.local
 src/uploads/*
+!src/uploads/.gitkeep
